@@ -1,11 +1,11 @@
-// styles.scss
+// popup.scss
 
 body {
     font-family: 'Arial', sans-serif;
     margin: 10px;
     width: 500px;
     max-height: 800px;
-    overflow-y: auto;
+    overflow: auto;
   }
   
   button {
