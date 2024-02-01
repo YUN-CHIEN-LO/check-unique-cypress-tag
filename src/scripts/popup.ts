@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ) as HTMLButtonElement;
 
   findDuplicatesButton.addEventListener("click", () => {
+    clearHighlightElements();
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       const tabId = tabs[0]?.id ?? -1;
       chrome.tabs.sendMessage(

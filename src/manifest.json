@@ -9,7 +9,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://localhost:*/SynFactory/*", "http://*/SynFactory/*"],
+      "matches": ["http://localhost:*/*", "http://*/SynFactory/*"],
       "js": ["scripts/content.js"]
     }
   ]
