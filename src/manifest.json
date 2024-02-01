@@ -1,10 +1,16 @@
 {
   "name": "LYC Check Unique Cypress Tag",
-  "description": "A simple Chrome extension tool to help detect guplicated cypress tag on a single page.",
+  "description": "A simple Chrome extension tool to help detect duplicated cypress tag on a single page.",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
-    "default_popup": "hello.html",
+    "default_popup": "popup.html",
     "default_icon": "assets/LYC-icon.png"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:*/SynFactory/*", "http://*/SynFactory/*"],
+      "js": ["scripts/content.js"]
+    }
+  ]
 }

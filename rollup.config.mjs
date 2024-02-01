@@ -4,7 +4,7 @@ import terser from "@rollup/plugin-terser";
 
 export default [
   {
-    input: "src/script/index.ts",
+    input: "src/scripts/popup.ts",
     output: [
       {
         dir: "./dist/scripts",
@@ -12,7 +12,10 @@ export default [
       },
     ],
     plugins: [
-      typescript(),
+      typescript({
+        tsconfig: "tsconfig.json",
+        types: ["chrome"],
+      }),
       copy({
         targets: [
           { src: "src/**.html", dest: "dist" },
@@ -20,6 +23,23 @@ export default [
           { src: "src/manifest.json", dest: "dist" },
         ],
       }),
+      terser(),
+    ],
+  },
+  {
+    input: "src/scripts/content.ts",
+    output: [
+      {
+        dir: "./dist/scripts",
+        format: "cjs",
+      },
+    ],
+    plugins: [
+      typescript({
+        tsconfig: "tsconfig.json",
+        types: ["chrome"],
+      }),
+      ,
       terser(),
     ],
   },
